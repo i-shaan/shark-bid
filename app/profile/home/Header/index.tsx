@@ -15,7 +15,7 @@ const Header_Home: React.FC = () => {
     { name: 'MANTRA', price: 6.137, change: -3.0 },
   ];
 
-  const [isVerified, setIsVerified] = useState(false);
+  const [isVerified] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [modalPosition, setModalPosition] = useState({ top: 0, left: 0 });
 
