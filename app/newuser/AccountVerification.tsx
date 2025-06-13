@@ -57,15 +57,16 @@ const AccountVerification: React.FC<AccountVerificationProps> = ({
               Enter OTP
             </p>
             <div className="flex gap-2">
-              {[...Array(6)].map((_, i) => (
-                <input
-                  key={i}
-                  type="text"
-                  maxLength={1}
-                  {...register(`otp.${i}`)}
-                  className="w-12 h-12 text-center border border-[#BBBBBB]  text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              ))}
+            {[...Array(6)].map((_, i) => (
+  <input
+    key={i}
+    type="text"
+    maxLength={1}
+    {...register(`otp.${i}` as const)}  // 👈 fix is here
+    className="w-12 h-12 text-center border border-[#BBBBBB] text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+  />
+))}
+
             </div>
             <p className="text-gray-400 mt-2">
               Resend code in <span className="text-white">00:25</span>

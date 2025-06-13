@@ -35,7 +35,7 @@ const NewUser: React.FC = () => {
 
   const handleAccountSubmit = (data: AccountFormData) => {
     if (verificationStep === 'phone') {
-      setPhoneNumber(data.phone);
+      setPhoneNumber(data.phone ?? '');
       setVerificationStep('otp');
     } else {
       setCurrentStep(2);

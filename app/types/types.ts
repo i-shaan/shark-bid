@@ -12,9 +12,11 @@ export type Step = {
   };
   
   export type AccountFormData = {
-    phone: string;
-    otp: string;
+    phone?: string;
+    otp?: { [key: string]: string }; // 👈 accepts keys like "0", "1", ...
   };
+  
+  
   
   export type IdentityFormData = {
     country: string;
