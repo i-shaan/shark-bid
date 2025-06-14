@@ -76,7 +76,7 @@ const AccountVerification: React.FC<AccountVerificationProps> = ({
 
         <button
           type="submit"
-          className="w-full py-3 px-4 mt-[3rem] bg-[#BBBBBB] hover:bg-gray-300 text-[#111111] rounded-full transition-colors"
+          className="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-medium py-4 px-6 rounded-full transition-colors duration-200 text-lg "
         >
           {step === 'phone' ? 'Confirm' : 'Verify'}
         </button>

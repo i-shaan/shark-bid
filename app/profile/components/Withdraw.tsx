@@ -29,7 +29,7 @@ export default function WithdrawToBank() {
   const isDisabled = !!error || !amount;
 
   return (
-    <div className="bg-[#1C1B20] border border-[#333] rounded-lg p-6 w-full max-w-sm space-y-4">
+    <div className=" border border-[#333] rounded-lg p-6 w-full max-w-sm space-y-4">
       <div>
         <h2 className="text-white text-sm font-semibold">WITHDRAW TO BANK</h2>
         <p className="text-sm text-gray-400 mt-1">
@@ -55,14 +55,12 @@ export default function WithdrawToBank() {
         {error && <p className="text-xs text-red-400">{error}</p>}
       </div>
 
-      <Button
-        disabled={isDisabled}
-        className={`w-full h-12 rounded-full text-black font-semibold ${
-          isDisabled ? 'bg-[#5c5c5c] cursor-not-allowed' : 'bg-[#FBD200] hover:bg-[#e6c000]'
-        }`}
+      <button
+        
+        className={`w-full h-12 rounded-3xl text-black  bg-[#FFC801]`}
       >
         Buy USDT
-      </Button>
+      </button>
     </div>
   );
 }

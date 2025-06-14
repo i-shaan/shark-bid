@@ -56,7 +56,7 @@ const CryptoDashboard = () => {
           <div className="lg:col-span-2 space-y-6">
             
             {/* Investment Ready / Portfolio Value Card */}
-            <div className="bg-[linear-gradient(101.13deg,#242329_0%,#3B3740_106.79%,#58525E_122.25%)] rounded-xl p-6  overflow-hidden border-1 border-[#BBBBBB1A]">
+            <div className="bg-[linear-gradient(180deg,#242329_0%,#58525E_247.86%)] rounded-xl p-6 border-1 border-[#BBBBBB1A]">
         
               <div className="relative z-10">
                 {!isVerified ? (
@@ -111,10 +111,12 @@ const CryptoDashboard = () => {
                   <h3 className="font-semibold">Coins</h3>
                 </div>
                 <p className="text-gray-400 text-sm mb-4">Evaluate and add individual crypto</p>
+                <Link href="/coins">
                 <button className="flex items-center text-yellow-400 hover:text-yellow-300 transition-colors group">
                   <span>Explore Coins</span>
                   <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
+                </Link>
               </div>
             </div>
           </div>

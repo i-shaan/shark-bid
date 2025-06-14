@@ -3,10 +3,17 @@ import React, { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { ArrowLeft, Copy, TrendingDown } from 'lucide-react';
-
+import { ArrowLeft, Copy } from 'lucide-react';
+import {
+    ArrowDownCircle,
+    SendHorizonal,
+    TrendingDown,
+    ShieldCheck
+  } from "lucide-react";
+  
 const Investing = () => {
-  const [investmentAmount, setInvestmentAmount] = useState(5000);
+    const [investmentAmount, setInvestmentAmount] = useState<number | "">("");
+
   const [currentView, setCurrentView] = useState<'default' | 'deposit' | 'depositConfirmation' | 'buyDip'>('default');
   const [targetPrice, setTargetPrice] = useState(1000);
   const [dipInvestmentAmount, setDipInvestmentAmount] = useState('');
@@ -133,39 +140,54 @@ const Investing = () => {
   const renderDefault = () => (
     <Card className="bg-[#3A393F] border border-[#BBBBBB1A] p-6">
       <h3 className="text-lg font-bold text-white mb-4">START INVESTING</h3>
-
+  
       <div className="space-y-4">
         <div>
           <label className="text-sm text-white mb-2 block">Amount</label>
           <div className="relative">
             <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#bbbbbb]">$</span>
             <Input
-              type="number"
-              value={investmentAmount}
-              onChange={(e) => setInvestmentAmount(Number(e.target.value))}
-              className="pl-8 bg-[#FFFFFF4D] text-white appearance-none focus:outline-none"
-            />
+  type="number"
+  value={investmentAmount}
+  placeholder="5000"
+  onChange={(e) => {
+    const val = e.target.value;
+    setInvestmentAmount(val === "" ? "" : Number(val));
+  }}
+  className="pl-8 bg-[#FFFFFF4D] text-white placeholder:text-[#bbbbbb] appearance-none focus:outline-none"
+/>
+
+
           </div>
           <p className="text-sm text-[#00FF00] mt-1">You can invest</p>
         </div>
+  
         <Button className="w-full bg-[#FFC801] rounded-full h-12 hover:bg-yellow-600 text-[#212121] font-semibold">
           Buy
         </Button>
-
+  
         <div className="text-center text-[#bbbbbb] text-sm">or</div>
-
+  
         <div className="flex justify-between gap-3 text-xs text-gray-300 w-full">
           <div className="flex flex-col items-center flex-1 space-y-1">
             <Button
               variant="outline"
               size="icon"
               className="w-10 h-10 rounded-full bg-gray-600 border-gray-600 hover:bg-gray-500"
-              onClick={() => setCurrentView('deposit')}
-            />
+              onClick={() => setCurrentView("deposit")}
+            >
+              <ArrowDownCircle className="w-4 h-4 text-white" />
+            </Button>
             <span>Deposit Coin</span>
           </div>
           <div className="flex flex-col items-center flex-1 space-y-1">
-            <Button variant="outline" size="icon" className="w-10 h-10 rounded-full bg-gray-600 border-gray-600" />
+            <Button
+              variant="outline"
+              size="icon"
+              className="w-10 h-10 rounded-full bg-gray-600 border-gray-600"
+            >
+              <SendHorizonal className="w-4 h-4 text-white" />
+            </Button>
             <span>Send Coin</span>
           </div>
           <div className="flex flex-col items-center flex-1 space-y-1">
@@ -173,12 +195,20 @@ const Investing = () => {
               variant="outline"
               size="icon"
               className="w-10 h-10 rounded-full bg-gray-600 border-gray-600 hover:bg-gray-500"
-              onClick={() => setCurrentView('buyDip')}
-            />
+              onClick={() => setCurrentView("buyDip")}
+            >
+              <TrendingDown className="w-4 h-4 text-white" />
+            </Button>
             <span>Buy the Dip</span>
           </div>
           <div className="flex flex-col items-center flex-1 space-y-1 text-center">
-            <Button variant="outline" size="icon" className="w-10 h-10 rounded-full bg-gray-600 border-gray-600" />
+            <Button
+              variant="outline"
+              size="icon"
+              className="w-10 h-10 rounded-full bg-gray-600 border-gray-600"
+            >
+              <ShieldCheck className="w-4 h-4 text-white" />
+            </Button>
             <span>Stop Loss/</span>
             <span>Take Profit</span>
           </div>
@@ -186,6 +216,7 @@ const Investing = () => {
       </div>
     </Card>
   );
+  
 
   const renderYourInvestments = () => (
     <Card className="bg-transparent border border-[#58525E] p-6 text-white mt-6">

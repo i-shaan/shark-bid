@@ -1,5 +1,7 @@
+
 import React, { useState } from 'react';
 import { ChevronLeft, HelpCircle } from 'lucide-react';
+import { useRouter } from 'next/navigation'; // ✅ Import from next/navigation
 
 export default function BankDetailsForm() {
   const [accountNumber, setAccountNumber] = useState('');
@@ -7,10 +9,12 @@ export default function BankDetailsForm() {
   const [bankIFSC, setBankIFSC] = useState('');
   const [isChecked, setIsChecked] = useState(false);
 
+  const router = useRouter();
   const handleVerify = () => {
     if (accountNumber && reenterAccountNumber && bankIFSC && isChecked) {
       if (accountNumber === reenterAccountNumber) {
         alert('Bank details verified successfully!');
+        router.push('/profile/home'); // ✅ Navigate on success
       } else {
         alert('Account numbers do not match. Please check and try again.');
       }
@@ -97,7 +101,7 @@ export default function BankDetailsForm() {
           {/* Verify Button */}
           <button
             onClick={handleVerify}
-            className="w-full bg-gray-400 hover:bg-gray-300 text-gray-800 font-medium py-4 px-6 rounded-full transition-colors duration-200 mt-8"
+            className="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-medium py-4 px-6 rounded-full transition-colors duration-200 text-lg"
           >
             Verify
           </button>

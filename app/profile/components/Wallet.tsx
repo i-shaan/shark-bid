@@ -72,11 +72,11 @@ export default function WalletTransfer() {
       </div>
 
       {transferError && (
-        <div className="text-red-500 text-xs font-lexend mb-2">{transferError}</div>
+        <div className="text-red-500 text-xs font-lexend mb-4">{transferError}</div>
       )}
 
       <button
-        className="w-full bg-[#FFD600] text-black rounded-full py-2 font-bold"
+        className="w-full bg-[#FFC801] text-black rounded-3xl py-2 my-2 "
         onClick={handleTransfer}
       >
         Transfer Now

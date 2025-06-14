@@ -1,6 +1,8 @@
 import React from 'react';
-import { ChevronRight, TrendingUp, TrendingDown } from 'lucide-react';
-
+import { ChevronRight } from 'lucide-react';
+import Gain from '@/components/icons/Gain';
+import Loss from '@/components/icons/Loss';
+import Link from "next/link";
 const SpotLight = () => {
   // Sample data - you can replace this with real data
   const topGainers = [
@@ -47,35 +49,48 @@ const SpotLight = () => {
           <div className="text-right">24h</div>
         </div>
         
-        {data.map((item, index) => (
-          <div key={index} className="grid grid-cols-3 items-center py-2 hover:bg-gray-700/30 rounded-lg transition-colors">
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center text-white font-semibold text-sm">
-                {item.icon}
-              </div>
-              <div>
-                <div className="text-white font-medium text-sm">{item.name}</div>
-              </div>
-            </div>
-            
-            <div className="text-center">
-              <span className="text-white font-medium text-sm">{item.price}</span>
-            </div>
-            
-            <div className="text-right">
-              <div className={`flex items-center justify-end space-x-1 ${
-                isGainer ? 'text-emerald-400' : 'text-red-400'
-              }`}>
-                {isGainer ? (
-                  <TrendingUp size={12} />
-                ) : (
-                  <TrendingDown size={12} />
-                )}
-                <span className="font-medium text-sm">{Math.abs(parseFloat(item.change)).toFixed(2)}%</span>
-              </div>
-            </div>
+       
+
+{data.map((item, index) => {
+  const isGainer = parseFloat(item.change) >= 0;
+
+  return (
+    <Link
+      key={index}
+      href={`/coins/${item.symbol}`}
+      className="block"
+    >
+      <div className="grid grid-cols-3 items-center py-2 hover:bg-gray-700/30 rounded-lg transition-colors">
+        <div className="flex items-center space-x-3">
+          <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center text-white font-semibold text-sm">
+            {item.icon}
           </div>
-        ))}
+          <div>
+            <div className="text-white font-medium text-sm">{item.name}</div>
+          </div>
+        </div>
+
+        <div className="text-center">
+          <span className="text-white font-medium text-sm">{item.price}</span>
+        </div>
+
+        <div className="text-right">
+          <div
+            className={`flex items-center justify-end space-x-1 ${
+              isGainer ? "text-emerald-400" : "text-red-400"
+            }`}
+          >
+            {isGainer ? <Gain /> : <Loss />}
+            <span className="font-medium text-sm">
+              {Math.abs(parseFloat(item.change)).toFixed(2)}%
+            </span>
+          </div>
+        </div>
+      </div>
+    </Link>
+  );
+})}
+
       </div>
     </div>
   );

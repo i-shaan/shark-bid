@@ -6,6 +6,8 @@ import { useParams } from 'next/navigation';
 import Breadcrumb from '@/app/coins/Header/Breadcrumb';
 import Header_Home from '@/app/profile/home/Header';
 import { useRouter } from 'next/navigation';
+import Gain from '@/components/icons/Gain';
+import Loss from '@/components/icons/Loss';
 interface CoinData {
   id: number;
   name: string;
@@ -234,14 +236,26 @@ const router= useRouter();
                     {formatPrice(crypto.price)}
                   </td>
                   <td className={`w-24 px-4 py-4 text-right font-medium ${crypto.change1h >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
-                    {formatPercentage(crypto.change1h)}
-                  </td>
-                  <td className={`w-24 px-4 py-4 text-right font-medium ${crypto.change24h >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
-                    {formatPercentage(crypto.change24h)}
-                  </td>
-                  <td className={`w-24 px-4 py-4 text-right font-medium ${crypto.change7d >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
-                    {formatPercentage(crypto.change7d)}
-                  </td>
+  <div className="flex items-center justify-end gap-1">
+    {crypto.change1h >= 0 ? <Gain /> : <Loss />}
+    {Math.abs(crypto.change1h).toFixed(2)}%
+  </div>
+</td>
+
+<td className={`w-24 px-4 py-4 text-right font-medium ${crypto.change24h >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+  <div className="flex items-center justify-end gap-1">
+    {crypto.change24h >= 0 ? <Gain /> : <Loss />}
+    {Math.abs(crypto.change24h).toFixed(2)}%
+  </div>
+</td>
+
+<td className={`w-24 px-4 py-4 text-right font-medium ${crypto.change7d >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+  <div className="flex items-center justify-end gap-1">
+    {crypto.change7d >= 0 ? <Gain /> : <Loss />}
+    {Math.abs(crypto.change7d).toFixed(2)}%
+  </div>
+</td>
+
                   <td className="w-32 px-4 py-4 text-white text-right">
                     {formatLargeNumber(crypto.volume24h)}
                   </td>

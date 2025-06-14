@@ -379,14 +379,15 @@ export const TradingPanel = () => {
       </div>
 
       {/* Buy/Sell Buttons */}
-      <div className="flex gap-4 mb-4 w-full justify-between  ">
-        <button className="w-1/2 h-10 bg-[#00ff00] text-[#242329] rounded-[25px] hover:bg-[#00dd00] font-lexend">
-          <span className="font-medium text-sm tracking-wide">Buy</span>
-        </button>
-        <button className="w-1/2 h-10 bg-[#ff0000] text-white rounded-[25px] hover:bg-[#dd0000] font-lexend">
-          <span className="font-medium text-sm tracking-wide">Sell</span>
-        </button>
-      </div>
+      <div className="flex gap-4 mb-4 w-full justify-between">
+  <button className="w-1/2 h-10 bg-emerald-400 text-[#242329] rounded-[25px] hover:bg-emerald-500 hover:shadow-md hover:scale-[1.02] transition-all duration-200 font-lexend">
+    <span className="font-medium text-sm tracking-wide">Buy</span>
+  </button>
+  <button className="w-1/2 h-10 bg-red-400 text-white rounded-[25px] hover:bg-red-500 hover:shadow-md hover:scale-[1.02] transition-all duration-200 font-lexend">
+    <span className="font-medium text-sm tracking-wide">Sell</span>
+  </button>
+</div>
+
 
       {/* Verification Message */}
       <div className="text-[10px] font-lexend text-[#bbbbbb] mb-4 leading-5">

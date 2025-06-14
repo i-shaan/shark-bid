@@ -20,7 +20,7 @@ export default function SendUSDT() {
   };
 
   return (
-    <div className="bg-transparent flex items-center justify-center border-1 border-[#BBBBBB4D] py-6">
+    <div className="bg-transparent rounded-lg flex items-center justify-center border-1 border-[#BBBBBB4D] py-6">
       <div className="w-full max-w-md  rounded-2xl  shadow-2xl">
         {/* Header */}
         <h1 className="text-white text-xl font-semibold mb-6">SEND USDT</h1>
@@ -28,7 +28,7 @@ export default function SendUSDT() {
         {/* USDT Amount */}
         <div className="mb-6">
           <label className="text-gray-400 text-sm mb-2 block">USDT Amount</label>
-          <div className="relative">
+          <div className="relative mb-2">
             <input
               type="text"
               value={amount}
@@ -37,9 +37,6 @@ export default function SendUSDT() {
               placeholder="Enter amount"
             />
           </div>
-          <p className="text-red-400 text-xs mt-1">
-            Amount entered is greater than the available balance.
-          </p>
           <p className="text-gray-400 text-xs">Max: 0 USDT</p>
         </div>
 
@@ -61,8 +58,8 @@ export default function SendUSDT() {
         </div>
 
         {/* Network Selection */}
-        <div className="mb-6">
-          <label className="text-gray-400 text-sm mb-2 block">Network</label>
+        <div className="mb-6 ">
+          <label className="text-gray-400 text-sm mb-2 block ">Network</label>
           <div className="relative">
             <button
               onClick={() => setIsNetworkOpen(!isNetworkOpen)}
@@ -81,7 +78,7 @@ export default function SendUSDT() {
               />
             </button>
             {isNetworkOpen && (
-              <div className="absolute top-full left-0 right-0 mt-1 bg-gray-700 border border-gray-600 rounded-lg shadow-lg z-10">
+              <div className="absolute top-full left-0 right-0 mt-1 bg-gray-700 border border-gray-600  shadow-lg z-10">
                 <div className="p-3 hover:bg-gray-600 cursor-pointer flex items-center gap-3">
                   <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
                     <span className="text-white text-xs font-bold">₿</span>
@@ -94,41 +91,40 @@ export default function SendUSDT() {
         </div>
 
         {/* Destination Address */}
-        <div className="mb-6">
+        <div className="mb-6 ">
           <label className="text-gray-400 text-sm mb-2 block">Destination USDT Address</label>
           <input
             type="text"
             value={destinationAddress}
             onChange={(e) => setDestinationAddress(e.target.value)}
-            className="w-full border border-[#BBBBBB4D]rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gray-500"
+            className="w-full border border-[#BBBBBB4D] rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gray-500"
             placeholder="Enter address"
           />
         </div>
 
         {/* Fees Section */}
-        <div className="mb-6">
+        <div className="mb-6 bg-[#BBBBBB4D] p-3 rounded-xl">
           <h3 className="text-white text-sm font-medium mb-3">FEES</h3>
           
-          <div className="space-y-3">
+          <div className="space-y-3 ">
             <div className="flex justify-between items-center">
               <div>
-                <p className="text-gray-300 text-sm">Network Fee</p>
-                <p className="text-gray-500 text-xs">Fee charged by Aptos</p>
+                <p className="text-white text-sm">Network Fee</p>
+                <p className="text-[#BBBBBB] text-xs">Fee charged by Aptos</p>
               </div>
               <div className="text-right">
                 <p className="text-white text-sm">0 USDT</p>
-                <p className="text-gray-500 text-xs">$0.000</p>
+                <p className="text-[#BBBBBB] text-xs">$0.000</p>
               </div>
             </div>
-
             <div className="flex justify-between items-center">
               <div>
-                <p className="text-gray-300 text-sm">SharkBid Fee</p>
-                <p className="text-gray-500 text-xs">Fee to carry out transaction</p>
+                <p className="text-white text-sm">SharkBid Fee</p>
+                <p className="text-[#BBBBBB] text-xs">Fee to carry out transaction</p>
               </div>
               <div className="text-right">
                 <p className="text-white text-sm">0.5USDT</p>
-                <p className="text-gray-500 text-xs">$0.5000</p>
+                <p className="text-[#BBBBBB] text-xs">$0.5000</p>
               </div>
             </div>
           </div>
@@ -136,15 +132,15 @@ export default function SendUSDT() {
 
         {/* Important Details */}
         <div className="mb-6">
-          <h3 className="text-white text-sm font-medium mb-3">Important Details</h3>
-          <ul className="text-gray-400 text-xs space-y-1">
+          <h3 className="text-white text-base font-medium mb-3">Important Details</h3>
+          <ul className="text-[#BBBBBB] text-xs space-y-1">
             <li>• Ensure that the withdrawal address is supported on Aptos</li>
             <li>• Some other important information</li>
           </ul>
         </div>
 
         {/* Done Button */}
-        <button className="w-full bg-yellow-500 hover:bg-yellow-400 text-black font-semibold py-3 px-4 rounded-lg transition-colors">
+        <button className="w-full bg-[#FFC801] hover:bg-yellow-400 text-black py-3 px-4 rounded-3xl transition-colors">
           Done
         </button>
       </div>

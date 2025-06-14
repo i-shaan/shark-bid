@@ -24,7 +24,7 @@ export default function DepositUSDT({ onClose }: DepositUSDTProps) {
   };
 
   return (
-    <div className="h-full bg-transparent border-1 border-[#BBBBBB4D] rounded-md">
+    <div className="h-full bg-transparent  border-1 border-[#BBBBBB4D] rounded-lg">
       {/* Header */}
       <div className="p-4  flex items-center justify-between">
         <h2 className="text-base font-semibold text-white">DEPOSIT USDT</h2>
@@ -84,17 +84,17 @@ export default function DepositUSDT({ onClose }: DepositUSDTProps) {
         </div>
 
         {/* Note */}
-        <div className="bg-[#FFE071]  border border-[#444] rounded-md p-4">
-          <p className="text-sm text-[#bbbbbb]">
+        <div className="bg-gray-300   border border-[#444] rounded-md p-4">
+          <p className="text-sm text-black">
             Please ensure that you enter the correct Address and Network on your
             source wallet
           </p>
         </div>
 
         {/* Done Button */}
-        <Button className="w-full bg-[#FFC801] hover:bg-[#e6c000] text-black font-semibold h-12 rounded-3xl">
+        <button className="w-full bg-[#FFC801] hover:bg-[#e6c000] text-black h-12 rounded-3xl">
           Done
-        </Button>
+        </button>
       </div>
     </div>
   );

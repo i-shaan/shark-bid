@@ -4,6 +4,8 @@ import { GainerLoser } from '../../types/types';
 import { formatCurrency } from '../../utils/formatters';
 import Image from 'next/image';
 import Link from 'next/link';
+import Gain from '@/components/icons/Gain';
+import Loss from '@/components/icons/Loss';
 interface GainersLosersProps {
   gainers: GainerLoser[];
   losers: GainerLoser[];
@@ -14,10 +16,8 @@ const GainersLosers: React.FC<GainersLosersProps> = ({ gainers, losers }) => {
 
   return (
     <div
-      className="rounded-lg p-6 h-full border border-[#bbbbbb1a]"
-      style={{
-        background: 'linear-gradient(101.13deg, #242329 0%, #3B3740 106.79%, #58525E 122.25%)',
-      }}
+      className="bg-[linear-gradient(180deg,#242329_0%,#58525E_247.86%)] rounded-xl p-4 border-1 border-[#BBBBBB1A] h-full"
+
     >
       <div className="flex mb-4">
         <button
@@ -93,38 +93,14 @@ const GainersLosers: React.FC<GainersLosersProps> = ({ gainers, losers }) => {
                 <div className="text-sm text-white">{formatCurrency(item.price)}</div>
                 <div
                   className={`text-sm flex items-center font-medium ${
-                    isGainer ? 'text-[#00FF00]' : 'text-[#FF0000]'
+                    isGainer ? 'text-emerald-400' : 'text-red-400'
                   }`}
                 >
                   {/* Custom SVG Arrow */}
                   {isGainer ? (
-                    <svg
-                      width="10"
-                      height="8"
-                      viewBox="0 0 10 8"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="mr-1"
-                    >
-                      <path
-                        d="M3.97251 1.48306C4.46961 0.765552 5.53039 0.765552 6.02749 1.48306L8.83693 5.53813C9.41128 6.36714 8.81796 7.5 7.80943 7.5L2.19056 7.5C1.18204 7.5 0.588719 6.36713 1.16307 5.53813L3.97251 1.48306Z"
-                        fill="#00FF00"
-                      />
-                    </svg>
+                  <Gain/>
                   ) : (
-                    <svg
-                      width="10"
-                      height="8"
-                      viewBox="0 0 10 8"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="mr-1 rotate-180"
-                    >
-                      <path
-                        d="M3.97251 1.48306C4.46961 0.765552 5.53039 0.765552 6.02749 1.48306L8.83693 5.53813C9.41128 6.36714 8.81796 7.5 7.80943 7.5L2.19056 7.5C1.18204 7.5 0.588719 6.36713 1.16307 5.53813L3.97251 1.48306Z"
-                        fill="#FF4D4D"
-                      />
-                    </svg>
+                    <Loss/>
                   )}
                   <span>{Math.abs(item.change24h).toFixed(2)}%</span>
                 </div>

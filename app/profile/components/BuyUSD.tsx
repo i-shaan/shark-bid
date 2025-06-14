@@ -28,14 +28,12 @@ export default function BuyUSDT() {
       </div>
 
       {/* Button */}
-      <Button
-        disabled={isDisabled}
-        className={`w-full h-12 rounded-full text-black font-semibold ${
-          isDisabled ? 'bg-[#5c5c5c] cursor-not-allowed' : 'bg-[#FBD200] hover:bg-[#e6c000]'
-        }`}
+      <button
+        // disabled={isDisabled}
+        className={`w-full h-12 rounded-3xl text-black bg-[#FFC801]`}
       >
         Buy USDT
-      </Button>
+      </button>
     </div>
   );
 }

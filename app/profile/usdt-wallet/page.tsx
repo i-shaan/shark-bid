@@ -279,9 +279,9 @@ export default function WalletDashboard() {
                     <div className="space-y-2">
                       <h3 className="text-xl font-semibold text-gray-300">No Transaction History</h3>
                     </div>
-                    <Button className="bg-[#FFC801] hover:bg-yellow-700 text-black font-medium px-8 py-2">
+                    <button className="bg-[#FFC801] rounded-3xl  text-black font-medium px-8 py-2">
                       Start Investing
-                    </Button>
+                    </button>
                   </div>
                 </div>
               </div>

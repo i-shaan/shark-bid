@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { X, Search, TrendingUp, TrendingDown } from 'lucide-react';
+import Loss from '@/components/icons/Loss';
+import Gain from '@/components/icons/Gain';
 
 interface CoinData {
   symbol: string;
@@ -126,17 +128,20 @@ export const CoinModal: React.FC<CoinModalProps> = ({
                     {coin.price}
                   </div>
 
-                  {/* 24h Change */}
-                  <div className={`text-right font-medium flex items-center justify-end space-x-1 ${
-                    coin.isPositive ? 'text-green-400' : 'text-red-400'
-                  }`}>
-                    {coin.isPositive ? (
-                      <TrendingUp className="w-4 h-4" />
-                    ) : (
-                      <TrendingDown className="w-4 h-4" />
-                    )}
-                    <span>{coin.change}</span>
-                  </div>
+{/* 24h Change */}
+<div
+  className={`text-right font-medium flex items-center justify-end space-x-1 ${
+    coin.isPositive ? 'text-emerald-400' : 'text-red-400'
+  }`}
+>
+  {coin.isPositive ? (
+   <Gain/>
+  ) : (
+    <Loss/>
+  )}
+  <span>{coin.change.replace(/[+-]/, '')}</span>
+</div>
+
 
                   {/* Volume */}
                   <div className="text-right text-gray-400 font-medium">

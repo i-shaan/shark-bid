@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Header from '../Header/Header';
+
 import Investing from './Investing';
 import ReturnsCalculator from './ReturnsCalculator';
 import PriceSection from './components/PriceSection';
@@ -14,6 +14,7 @@ import InsightsSection from './components/InsightsSection';
 import Cryptocurrencies from './components/Cryptocurrencies';
 import Faq from './components/Faq';
 import Breadcrumb from '../Header/Breadcrumb';
+import Header_Home from '@/app/profile/home/Header';
 
 type Timeframe = '1s' | '1m' | '5m' | '15m' | '1h' | '4h' | '24h';
 
@@ -22,7 +23,7 @@ export default function Home() {
 
   return (
     <div className="h-full bg-[#242329] text-white">
-      <Header />
+      <Header_Home/>
       
       <div className="container mx-auto pb-4 px-[140px] ">
         <Breadcrumb items={['Home', 'Coins', 'Ardor']} />

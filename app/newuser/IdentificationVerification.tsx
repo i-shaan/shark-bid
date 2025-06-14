@@ -44,7 +44,7 @@ const IdentityVerification: React.FC<IdentityVerificationProps> = ({
                 <option value="india">India</option>
               </select>
             </div>
-            <button type="submit" className="w-full py-3 px-4 bg-yellow-500 hover:bg-yellow-600 text-gray-900 rounded-md">
+            <button type="submit" className="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-medium py-4 px-6 rounded-full transition-colors duration-200 text-lg">
               Verify
             </button>
           </div>
@@ -94,7 +94,7 @@ const IdentityVerification: React.FC<IdentityVerificationProps> = ({
                 </div>
               </div>
             </div>
-            <button type="submit" className="w-full py-3 px-4 bg-gray-200 hover:bg-gray-300 text-gray-900 rounded-md">
+            <button type="submit" className="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-medium py-4 px-6 rounded-full transition-colors duration-200 text-lg">
               Verify
             </button>
           </div>

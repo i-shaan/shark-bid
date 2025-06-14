@@ -1,76 +1,78 @@
 import React from "react";
+import Gain from "@/components/icons/Gain";
+import Loss from "@/components/icons/Loss";
 
-
-export const CoinDetails = ()=> {
-  // Trading metrics data for easy mapping
+export const CoinDetails = () => {
   const tradingMetrics = [
     {
       id: "last-price",
       label: "Last Price",
-      value: "84,320.4",
-      valueColor: "text-[#ff329b]",
-      fontWeight: "font-semibold",
+      value: "$84,320.4",
     },
     {
       id: "24h-change",
       label: "24h Change",
       value: "+10.9%",
-      valueColor: "text-[#14ffa2]",
     },
     {
       id: "market-price",
       label: "Market Price",
       value: "$84,315.3",
-      valueColor: "text-white",
     },
     {
       id: "spot-price",
       label: "Spot Price",
       value: "$84,348.8",
-      valueColor: "text-white",
     },
     {
       id: "8h-funding",
       label: "8h Funding",
-      value: "0.0100%",
-      valueColor: "text-[#14ffa2]",
+      value: "+0.0100%",
       labelStyle: "underline",
     },
     {
       id: "24h-volume",
       label: "24h Volume",
       value: "$24,316,135",
-      valueColor: "text-white",
     },
     {
       id: "open-interest",
       label: "Open Interest",
       value: "$7,651,279",
-      valueColor: "text-white",
     },
   ];
 
   return (
-<div className="flex-1 bg-[#242329] rounded-[15px] border-none flex items-center r">
-  <div className="p-4">
-    <div className="flex flex-wrap gap-6 justify-center items-center">
-      {tradingMetrics.map((metric) => (
-        <div key={metric.id} className="flex flex-col items-center">
-          <span
-            className={`text-[10px] font-medium text-[#bbbbbb] font-lexend ${metric.labelStyle || ""}`}
-          >
-            {metric.label}
-          </span>
-          <span
-            className={`text-xs ${metric.fontWeight || "font-medium"} ${metric.valueColor} font-lexend`}
-          >
-            {metric.value}
-          </span>
-        </div>
-      ))}
-    </div>
-  </div>
-</div>
+    <div className="flex-1 bg-[#242329] rounded-[15px] border-none flex items-center">
+      <div className="p-4 w-full">
+        <div className="flex flex-wrap gap-6 items-center">
+          {tradingMetrics.map((metric) => {
+            const isPercentage = metric.value.includes("%");
+            const isPositive = metric.value.startsWith("+");
+            const isNegative = metric.value.startsWith("-");
 
+            const numericValue = metric.value.replace(/[+-]/, "");
+
+            return (
+              <div key={metric.id} className="flex flex-col items-center min-w-[90px]">
+                <span
+                  className={`text-[10px] font-medium text-[#bbbbbb] font-lexend ${metric.labelStyle || ""}`}
+                >
+                  {metric.label}
+                </span>
+                <span
+                  className={`text-xs font-medium font-lexend flex items-center gap-1 ${
+                    isPositive ? "text-emerald-400" : isNegative ? "text-red-400" : "text-white"
+                  }`}
+                >
+                  {isPercentage && (isPositive ? <Gain /> : isNegative ? <Loss /> : null)}
+                  {numericValue}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
   );
 };

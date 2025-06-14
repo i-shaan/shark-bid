@@ -4,14 +4,14 @@ import { CoinDetails } from "../components/Coindetails";
 import { ChartSection } from "../components/ChartSection";
 import { TablesSection } from "../components/TablesSection";
 import { TradingPanel } from "../components/TradingPanel";
-import Header from "../../coins/Header/Header";
+import Header_Home from "@/app/profile/home/Header";
 
 const FuturesMarket = () => {
   return (
     <div className="bg-[#1a191d] flex flex-col w-full h-[1140px]">
       <div className="h-full bg-[#1a191d] w-full flex flex-col">
         {/* Top navigation - Fixed height */}
-        <Header />
+        <Header_Home/>
 
         {/* Main content layout - 11/14 left, 3/14 right - Flex grow to fill remaining space */}
         <div className="flex p-5 gap-2 flex-1 overflow-hidden">

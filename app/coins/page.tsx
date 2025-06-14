@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import Header from './Header/Header';
 import Breadcrumb from './Header/Breadcrumb';
 import MarketStats from './MarketOverview/MarketStats';
 import GainersLosers from './MarketOverview/GainersLosers';
@@ -11,6 +10,7 @@ import MarketOverview from './MarketOverview/MarketOverview';
 import CategoryTags from './Footer/ExploreCategory';
 import { marketStats, cryptoData, gainers, losers, categories } from '../data/mockdata';
 import { TabType } from '../types/types';
+import Header_Home from '../profile/home/Header';
 
 function Coins() {
   const [activeTab, setActiveTab] = useState<TabType>('coins');
@@ -45,7 +45,7 @@ function Coins() {
   });
   return (
     <div className="h-full bg-[#242329] text-white">
-      <Header />
+      <Header_Home/>
 
       {/* Padding only applied here and below */}
       <main className="pb-2 px-[140px] ">
@@ -76,7 +76,7 @@ function Coins() {
 
         {/* Stats grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8 h-[15rem]">
-          <div className="md:col-span-1  ">
+          <div className="md:col-span-1   ">
             <MarketStats stats={marketStats} />
           </div>
           <div className="md:col-span-1 ">

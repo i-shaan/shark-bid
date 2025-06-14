@@ -92,7 +92,7 @@ export default function AdditionalInformationForm() {
         {/* Verify Button */}
         <button
           onClick={handleVerify}
-          className="w-full bg-gray-400 hover:bg-gray-300 text-gray-800 font-medium py-4 px-6 rounded-full transition-colors duration-200"
+          className="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-medium py-4 px-6 rounded-full transition-colors duration-200 text-lg"
         >
           Verify
         </button>

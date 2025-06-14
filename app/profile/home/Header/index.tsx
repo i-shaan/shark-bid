@@ -52,9 +52,23 @@ const Header_Home: React.FC = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [showModal]);
 
-  const UserIcon = () => <span className="text-white">👤</span>;
-  const CardIcon = () => <span className="text-white">💳</span>;
-  const HelpIcon = () => <span className="text-white">❓</span>;
+  const UserIcon = () => <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M10.8359 12.5C12.3547 12.5 13.5859 11.2688 13.5859 9.75C13.5859 8.23122 12.3547 7 10.8359 7C9.31715 7 8.08594 8.23122 8.08594 9.75C8.08594 11.2688 9.31715 12.5 10.8359 12.5Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M16.5469 18.721C15.5769 16.53 13.3879 15 10.8379 15C8.28791 15 6.09891 16.53 5.12891 18.721" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="11" cy="11" r="10.5" stroke="white"/>
+  </svg>
+  ;
+  const CardIcon = () => <svg width="23" height="17" viewBox="0 0 23 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1 6.06885H22" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M3.89655 16.207L19.1034 16.207C20.7032 16.207 22 14.9102 22 13.3105V3.89669C22 2.29696 20.7032 1.00013 19.1034 1.00013L3.89655 1.00013C2.29683 1.00013 1 2.29696 1 3.89669V13.3105C1 14.9102 2.29683 16.207 3.89655 16.207Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M4.62109 11.8623H8.96592" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M16.9297 11.8623H18.378" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>;  
+  const HelpIcon = () => <svg width="22" height="25" viewBox="0 0 22 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="11" cy="12" r="10.5" stroke="white"/>
+  <path d="M13.96 9.78125C13.96 10.2461 13.846 10.6654 13.6182 11.0391C13.4678 11.2852 13.1943 11.6064 12.7979 12.0029C12.4743 12.2718 12.1484 12.5384 11.8203 12.8027C11.7109 12.9303 11.6562 13.3633 11.6562 14.1016C11.6335 14.4707 11.4443 14.6553 11.0889 14.6553C10.6878 14.6553 10.4714 14.4707 10.4395 14.1016C10.4395 13.5 10.4827 13.0602 10.5693 12.7822C10.6514 12.5316 10.8086 12.2923 11.041 12.0645C11.3509 11.7865 11.6608 11.5085 11.9707 11.2305C12.4766 10.752 12.7295 10.278 12.7295 9.80859C12.7295 9.37565 12.5768 9.0293 12.2715 8.76953C11.9661 8.50521 11.5811 8.37305 11.1162 8.37305C9.89941 8.37305 9.29102 8.96549 9.29102 10.1504C9.26367 10.4284 9.06087 10.5674 8.68262 10.5674C8.38639 10.5674 8.1722 10.4284 8.04004 10.1504C8.03548 10.0729 8.0332 9.99544 8.0332 9.91797C8.0332 9.07943 8.31803 8.42546 8.8877 7.95605C9.44368 7.50033 10.2025 7.27246 11.1641 7.27246C11.957 7.27246 12.611 7.48665 13.126 7.91504C13.682 8.37533 13.96 8.9974 13.96 9.78125ZM11.8818 16.1113C11.8818 16.362 11.8044 16.5739 11.6494 16.7471C11.4945 16.9202 11.2962 17.0068 11.0547 17.0068C10.8132 17.0068 10.6149 16.9202 10.46 16.7471C10.3096 16.5739 10.2344 16.362 10.2344 16.1113C10.2344 15.8607 10.3096 15.6488 10.46 15.4756C10.6149 15.3024 10.8132 15.2158 11.0547 15.2158C11.2962 15.2158 11.4945 15.3024 11.6494 15.4756C11.8044 15.6488 11.8818 15.8607 11.8818 16.1113Z" fill="white"/>
+  </svg>
+  ;
 
   const MenuItem = ({ icon, label }: { icon: React.ReactNode; label: string }) => (
     <div className="flex items-center px-2 py-3 cursor-pointer hover:bg-[#4A4450]">
@@ -111,7 +125,7 @@ const Header_Home: React.FC = () => {
             <Settings className="text-white w-5 h-5" />
           </button>
           <button className="w-15 h-10 bg-[#58525E] rounded-xl flex gap-1 items-center justify-center"><svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M14.5 12.5C13.395 12.5 12.5 11.605 12.5 10.5V5.75C12.5 3.127 10.373 1 7.75 1C5.127 1 3 3.127 3 5.75V10.5C3 11.605 2.105 12.5 1 12.5H14.5Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" stroke-linejoin="round"/>
+<path d="M14.5 12.5C13.395 12.5 12.5 11.605 12.5 10.5V5.75C12.5 3.127 10.373 1 7.75 1C5.127 1 3 3.127 3 5.75V10.5C3 11.605 2.105 12.5 1 12.5H14.5Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
 <path d="M9.3336 14.435C9.2386 14.318 9.0966 14.25 8.9456 14.25H6.5466C6.3956 14.25 6.2536 14.318 6.1586 14.435C6.0636 14.552 6.0266 14.706 6.0576 14.853C6.2306 15.675 6.9256 16.25 7.7466 16.25C8.5676 16.25 9.2626 15.675 9.4356 14.853C9.4666 14.706 9.4286 14.552 9.3336 14.435Z" fill="white"/>
 </svg> 20
 </button>
@@ -122,8 +136,8 @@ const Header_Home: React.FC = () => {
             className="w-10 h-10 bg-[#58525E] rounded-xl flex items-center justify-center"
           >
 <svg width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M6.83594 6.5C8.35472 6.5 9.58594 5.26878 9.58594 3.75C9.58594 2.23122 8.35472 1 6.83594 1C5.31715 1 4.08594 2.23122 4.08594 3.75C4.08594 5.26878 5.31715 6.5 6.83594 6.5Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" stroke-linejoin="round"/>
-<path d="M11.5983 14.766C12.4583 14.495 12.9103 13.545 12.5453 12.721C11.5753 10.53 9.38629 9 6.83629 9C4.28629 9 2.09729 10.53 1.12729 12.721C0.76229 13.546 1.21429 14.495 2.07429 14.766C3.29929 15.152 4.92029 15.5 6.83629 15.5C8.75229 15.5 10.3733 15.152 11.5983 14.766Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" stroke-linejoin="round"/>
+<path d="M6.83594 6.5C8.35472 6.5 9.58594 5.26878 9.58594 3.75C9.58594 2.23122 8.35472 1 6.83594 1C5.31715 1 4.08594 2.23122 4.08594 3.75C4.08594 5.26878 5.31715 6.5 6.83594 6.5Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M11.5983 14.766C12.4583 14.495 12.9103 13.545 12.5453 12.721C11.5753 10.53 9.38629 9 6.83629 9C4.28629 9 2.09729 10.53 1.12729 12.721C0.76229 13.546 1.21429 14.495 2.07429 14.766C3.29929 15.152 4.92029 15.5 6.83629 15.5C8.75229 15.5 10.3733 15.152 11.5983 14.766Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
 </svg>
 
           </button>
@@ -151,7 +165,7 @@ const Header_Home: React.FC = () => {
                 <Link href="/profile/usdt-wallet">
   <div className="flex items-center px-2 py-3 cursor-pointer hover:bg-[#4A4450]">
     <div className="w-6 h-6 mr-3 flex items-center justify-center"><CardIcon /></div>
-    <span className="text-white text-sm">Transaction Histor</span>
+    <span className="text-white text-sm">Transaction History</span>
     <div className="ml-auto">
       <svg width="16" height="16" fill="none" stroke="white" strokeWidth="1.5" viewBox="0 0 24 24">
         <path d="M9 18l6-6-6-6" />

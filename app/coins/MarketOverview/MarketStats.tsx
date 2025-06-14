@@ -9,10 +9,8 @@ interface MarketStatsProps {
 const MarketStats: React.FC<MarketStatsProps> = ({ stats }) => {
   return (
     <div
-      className="bg-gray-800 rounded-lg p-6 h-full border border-[#bbbbbb1a]"
-      style={{
-        background: 'linear-gradient(101.13deg, #242329 0%, #3B3740 106.79%, #58525E 122.25%)',
-      }}
+      className="bg-[linear-gradient(180deg,#242329_0%,#58525E_247.86%)] rounded-xl p-4 border-1 border-[#BBBBBB1A] h-full"
+      
     >
       <h2 className="text-lg font-medium text-white mb-4">Market Stats</h2>
 
