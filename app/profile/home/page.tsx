@@ -13,11 +13,11 @@ const CryptoDashboard = () => {
   // Mock data for crypto coins
 
   const gainersData = [
-    { name: 'Bitcoin', price: '$45,298', change: '+5.20%', icon: '₿', isPositive: true },
-    { name: 'Ethereum', price: '$3,298', change: '+3.80%', icon: 'Ξ', isPositive: true },
-    { name: 'Solana', price: '$98.50', change: '+7.15%', icon: '◎', isPositive: true },
-    { name: 'Cardano', price: '$0.85', change: '+4.30%', icon: '₳', isPositive: true },
-    { name: 'Polkadot', price: '$12.45', change: '+2.90%', icon: '●', isPositive: true },
+    { name: 'Bitcoin', price: '$45,298', change: '5.20%', icon: '₿', isPositive: true },
+    { name: 'Ethereum', price: '$3,298', change: '3.80%', icon: 'Ξ', isPositive: true },
+    { name: 'Solana', price: '$98.50', change: '7.15%', icon: '◎', isPositive: true },
+    { name: 'Cardano', price: '$0.85', change: '4.30%', icon: '₳', isPositive: true },
+    { name: 'Polkadot', price: '$12.45', change: '2.90%', icon: '●', isPositive: true },
   ];
 
   const losersData = [
@@ -321,9 +321,10 @@ const CryptoDashboard = () => {
         </div>
         <div className="text-right flex gap-2">
           <div className="font-semibold">{coin.price}</div>
-          <div className={`text-sm flex items-center ${activeTab==="Losers" ? 'text-[#FF0000]' : 'text-[#00FF00]'}`}>
+          <div className={`text-sm flex items-center ${activeTab==="Losers" ? 'text-red-400' : 'text-emerald-400'}`}>
             {activeTab==="Losers" ? <Loss/> :<Gain/>}
-            {coin.change}
+            {Math.abs(parseFloat(coin.change.replace('-', '.'))).toFixed(2)}%
+
           </div>
         </div>
       </div>
